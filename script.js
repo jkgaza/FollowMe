@@ -13,7 +13,7 @@ function update() {
 
 update();
 
-let canvasPos = getPosition(canvas);
+var canvasPos = getPosition(canvas);
 var mouseX = 0;
 var mouseY = 0;
 
