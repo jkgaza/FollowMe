@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Canvas Follow Mouse</title>
+    <title>Follow Me!</title>
     <style>
       canvas {
         border: #333 10px solid;
@@ -15,18 +15,6 @@
 
   <body>
     <canvas id="myCanvas" width="550px" height="350px"></canvas>
-
-    <script>
-      var canvas = document.querySelector("#myCanvas");
-      var context = canvas.getContext("2d");
-
-      function update() {
-        context.beginPath();
-        context.arc(100, 100, 50, 0, 2 * Math.PI, true);
-        context.fillStyle = "#FF6A6A";
-        context.fill();
-      }
-      update();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
