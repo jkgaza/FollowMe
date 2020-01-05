@@ -3,10 +3,14 @@ var context = canvas.getContext("2d");
 
 function update() {
   context.beginPath();
-  context.arc(100, 100, 50, 0, 2 * Math.PI, true);
+  context.arc(mouseX, mouseY, 50, 0, 2 * Math.PI, true);
   context.fillStyle = "#FF6A6A";
   context.fill();
+
+  requestAnimationFrame(update);
 }
+
+update();
 
 let canvasPos = getPosition(canvas);
 var mouseX = 0;
@@ -19,19 +23,17 @@ function setMousePosition(e) {
   mouseY = e.clientY - canvasPos.y;
 }
 
-update();
-
 function getPosition(el) {
-    var xPosition = 0;
-    var yPosition = 0;
-   
-    while (el) {
-      xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-      yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
-      el = el.offsetParent;
-    }
-    return {
-      x: xPosition,
-      y: yPosition
-    };
-  } 
+  var xPosition = 0;
+  var yPosition = 0;
+
+  while (el) {
+    xPosition += el.offsetLeft - el.scrollLeft + el.clientLeft;
+    yPosition += el.offsetTop - el.scrollTop + el.clientTop;
+    el = el.offsetParent;
+  }
+  return {
+    x: xPosition,
+    y: yPosition
+  };
+}
