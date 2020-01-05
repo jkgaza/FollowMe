@@ -8,14 +8,15 @@ function update() {
   context.fill();
 }
 
+let canvasPos = getPosition(canvas);
 var mouseX = 0;
 var mouseY = 0;
 
 canvas.addEventListener("mousemove", setMousePosition, false);
 
 function setMousePosition(e) {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  mouseX = e.clientX - canvasPos.x;
+  mouseY = e.clientY - canvasPos.y;
 }
 
 update();
